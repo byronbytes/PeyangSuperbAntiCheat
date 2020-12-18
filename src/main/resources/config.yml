@@ -5,30 +5,57 @@ database:
   logPath: "./log.db"
   learnPath: "./learn.db"
 
+# Please add a language config setting
+
+# This will change the plugin's default language.
+# Options: jp, en
+# lang: jp
+
+
+#NPC Related Config
 #npc関係のコンフィグです。
 npc:
   #指定された秒数、NPCを召喚します。
   #秒数が短いとその中でのVL評価を行います。
+  
+ # Summons NPCs for the specified number of seconds.
+ #If the number of seconds is short, VL evaluation will be performed within that time.
   seconds: 5
+
 
   #NPCの速度などを変えるとき、微調整してください。
   #別の値に指定する場合、適切な値でないとIssue 17に対応できなくなる可能性があります。
+  
+ # Make fine adjustments when changing the speed of #NPCs.
+  #If you specify a different value, it may not be possible to support Issue 17 unless it is an appropriate value.
   time: 0.3
 
   #NPCのプレイヤーからの半径を指定します。
   #この値が最も安定している値ですが、ハッククライアントによってはKillAuraの半径を変更している場合もあります。
+  
+  #Specifies the radius from the NPC player.
+  #This is the most stable value, but some hacked clients may have changed the radius of killaura.
   range: 2.1
 
   #NPCがWaveを描くかどうかを指定します。
   #falseにした場合、NPCはWaveを描かなくなりIssue 17に対応できなくなります。
+  
+  #Specifies whether #NPCs draw Waves.
+ #If set to #false, NPCs will not draw Waves and will not be able to support Issue 17.
   wave: true
 
   #Waveの最小単位を指定します。
   #小さいほど動作が大きくなります。
+  
+ #Specify the minimum unit of Wave.
+  #The smaller the size, the larger the operation.
   waveMin: 0.3
 
   #Panic NPCのプレイヤーからの半径を指定します。
   #Panic NPCの場合、通常のNPCと異なり半径が大きいとうまく動作しない可能性があります。
+
+  #Panic Specifies the radius of the NPC from the player.
+  #In the case of Panic NPC, unlike a normal NPC, it may not work well if the radius is large.
   panicRange: 1.5
 
   kill: 3
@@ -36,6 +63,10 @@ npc:
   #NPCの学習係数を指定します。
   #大きいほどニューラルネットワークでの処理の回数が少なくなりますが、精度は低くなります。サーバースペックに合わせて適切な値に変更してください。
   #Doubleのため小数第一位以降も設定可能です。
+  
+  #Specify the learning factor of NPC.
+  #The larger the value, the less the number of processes in the neural network, but the lower the accuracy. Change it to an appropriate value according to the server specifications.
+  #Since it is Double, it can be set after the first decimal place.
   learn: 0.3
 
   speed:
@@ -44,33 +75,39 @@ npc:
 
 mod:
   tracking:
-    ##有効/無効
+    ##有効/無効 
+    ## Set as Enabled or Disabled
     enabled: true
     #CompassTracker3000™のトラックチックです。
+    # CompassTracker 3000 ™ track tick.
     trackTicks: 10
 
 kick:
   delay: 2
   #プレイヤーがキックされるときに雷を召喚するやつです。
+  #Summon lightning when user is kicked?
   lightning: true
-
-  #Kickまでのデータが見つからない場合のデフォルト値
+#Default value when data up to Kick is not found
+ #Kickまでのデータが見つからない場合のデフォルト値
   defaultKick: 25
 
 message:
-  #プレイヤーがレポートを提出した時などのメッセージを
-  #「Lynx」Modと互換性をもたせます。
+ # Messages that are compatible with the 'Hypixel Lynx' mod such as reports.
   lynx: true
 
 autoMessage:
-  #定期メッセージの有効/無効です
+  #定期メッセージの有効/無効です  
+#Periodic message enabled / disabled
   enabled: true
 
   #定期メッセージの周期です。(分指定)
+#Periodic message cycle. (Specify minutes)
   time: 15
 
 #スキンのUUIDセットです。
 #ここにプレイヤーのUUIDを指定すれば、そのプレイヤーのスキンが使用されます。
+#Skin UUID set.
+#If you specify a player's UUID here, that player's skin will be used.
 skins:
   - 6b93a8e658ee4794b69a56a3c2287010
   - 36f2cdbc77d545c7a205f5e8e6c0fb3b
